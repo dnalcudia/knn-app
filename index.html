@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg" href="img/letter-y.svg" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Sign Language Detector</title>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="./img/hello.svg" alt="" class="logo">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="">Instructions</a>
+                    </li>
+                </ul>
+            </nav>
+            <img src="./img/menu.png" alt="" class="menu-icon">
+        </div>
+        
+        <div class="row">
+            <div class="col-1">
+                <h2>Use Your Hand<br> To Present Yourself</h2>
+                <h3>Train the KNN algorithm with the given options</h3>
+                <p>Please, read the instructions first.<br> Then...</p>
+                <h4>Enjoy</h4>
+                <button id="startButton" type="button" onclick="startApp();">Start <img src="./img/arrow.png" alt=""></button>
+            </div>
+            <div class="col-2">
+                <img id="handImg" src="./img/letter-y.svg" alt="" class="webcam">
+                <video autoplay playsinline muted id="webcam" class="webcam" width="400px" height="400px"></video>
+                <div class="color-box">
+                </div>
+                <div class="train-btns">
+                    <button id="clase-a" onclick="addExample(1)">Hi</button>
+                    <button id="clase-b" onclick="addExample(2)">Good morning</button>
+                    <button id="clase-c" onclick="addExample(3)">My name is</button>
+                    <button id="clase-d" onclick="addExample(4)">Daniel</button>
+                    <button id="clase-e" onclick="addExample(5)">Nice to meet you!</button>
+                    <div> 
+                        <h4 id="console"></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js?v=151"></script>
+</body>
+</html>
