@@ -5,7 +5,7 @@
 }
 .container {
   width: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
   padding-left: 8%;
   padding-right: 8%;
   box-sizing: border-box;
@@ -34,19 +34,19 @@ nav ul li {
   display: inline-block;
   margin-right: 30px;
 }
-nav ul li a {
+nav ul li span {
   text-decoration: none;
   color: #000;
   font-size: 14px;
 }
-nav ul li a:hover {
-  color: #ff5ea2;
+nav ul li span:hover {
+  cursor: pointer;
 }
 .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 100px 0;
+  margin: 80px 0;
 }
 .col-1 {
   flex-basis: 40%;
@@ -133,10 +133,19 @@ button img {
   font-size: 13px;
   background: #fff;
   color: black;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 .train-btns button:hover {
-  box-shadow: 15px 11px 13px -1px rgba(0, 0, 0, 0.28);
+  box-shadow: 10px 10px 10px -1px rgba(0, 0, 0, 0.28);
+}
+.social-links img {
+  height: 18px;
+  width: 18px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+.social-links {
+  text-align: center;
 }
 
 #console {

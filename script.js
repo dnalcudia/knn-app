@@ -1,10 +1,9 @@
 let model;
-
 const webcamElement = document.getElementById('webcam');
 const classifier = knnClassifier.create();
-
 var net;
 var webcam;
+
 async function app() {
   net = await mobilenet.load();
   //obtenemos datos del webcam
@@ -56,35 +55,23 @@ async function addExample(classId) {
   img.dispose();
 }
 
-const saveKnn = async () => {
-  //obtenemos el dataset actual del clasificador (labels y vectores)
-  let strClassifier = JSON.stringify(
-    Object.entries(classifier.getClassifierDataset()).map(([label, data]) => [
-      label,
-      Array.from(data.dataSync()),
-      data.shape,
-    ])
-  );
-  const storageKey = 'knnClassifier';
-  //lo almacenamos en el localStorage
-  localStorage.setItem(storageKey, strClassifier);
+//Modal functions
+const $modal = document.getElementById('modal');
+const $overlay = document.getElementById('overlay');
+const $hideModal = document.getElementById('hide-modal');
+
+const showModal = ($element) => {
+  $overlay.classList.add('active');
+  $modal.style.animation = 'modalIn .8s forwards';
 };
 
-const loadKnn = async () => {
-  const storageKey = 'knnClassifier';
-  let datasetJson = localStorage.getItem(storageKey);
-  classifier.setClassifierDataset(
-    Object.fromEntries(
-      JSON.parse(datasetJson).map(([label, data, shape]) => [
-        label,
-        tf.tensor(data, shape),
-      ])
-    )
-  );
+const hideModal = () => {
+  $overlay.classList.remove('active');
+  $modal.style.animation = 'modalOut .8s forwards';
 };
 
 const startApp = () => {
-  const handImg = document.getElementById('handImg');
-  handImg.style = 'display:none;';
+  document.getElementById('handImg').style = 'display:none;';
+  showModal();
   app();
 };
